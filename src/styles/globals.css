@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'TT Commons Pro';
+  src: url('/fonts/TTCommonsPro-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@theme {
+  --font-display: 'TT Commons Pro', 'Inter', system-ui, sans-serif;
+}
+
+:root {
+  font-family: var(--font-display);
+  background-color: #000000;
+  color: #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #000000;
+  /* Allow scrolling on pages that need it */
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+}
