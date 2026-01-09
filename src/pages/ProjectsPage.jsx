@@ -25,11 +25,11 @@ export default function ProjectsPage() {
                 </h1>
 
                 {/* Projects Grid */}
-                <div className="py-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="py-4 md:py-8 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     {projects.map((project, index) => (
-                        <div key={index} className="bg-white/5 border border-white/10 rounded-xl p-6 hover:border-white/20 transition-all group">
-                            <div className="flex items-start justify-between mb-4">
-                                <h2 className="text-lg font-bold group-hover:text-blue-400 transition-colors flex-1 pr-4">{project.title}</h2>
+                        <div key={index} className="bg-white/5 border border-white/10 rounded-xl p-4 md:p-6 hover:border-white/20 transition-all group">
+                            <div className="flex items-start justify-between mb-3 md:mb-4">
+                                <h2 className="text-base md:text-lg font-bold group-hover:text-blue-400 transition-colors flex-1 pr-4">{project.title}</h2>
                                 <div className="flex gap-2 shrink-0">
                                     {project.demo && (
                                         <a href={project.demo} target="_blank" rel="noreferrer" className="w-8 h-8 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors">

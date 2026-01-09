@@ -24,19 +24,19 @@ export default function AchievementsPage() {
                 </h1>
 
                 {/* Achievements Grid */}
-                <div className="py-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="py-4 md:py-8 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     {achievements.map((achievement, index) => (
                         <div
                             key={index}
-                            className="bg-gradient-to-br from-yellow-900/20 to-orange-900/10 border border-yellow-500/20 rounded-xl p-6 hover:border-yellow-500/40 transition-colors"
+                            className="bg-gradient-to-br from-yellow-900/20 to-orange-900/10 border border-yellow-500/20 rounded-xl p-4 md:p-6 hover:border-yellow-500/40 transition-colors"
                         >
-                            <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 bg-yellow-500/20 rounded-xl flex items-center justify-center shrink-0">
-                                    <Trophy size={24} className="text-yellow-400" />
+                            <div className="flex items-start gap-3 md:gap-4">
+                                <div className="w-10 h-10 md:w-12 md:h-12 bg-yellow-500/20 rounded-xl flex items-center justify-center shrink-0">
+                                    <Trophy size={20} className="text-yellow-400 md:w-6 md:h-6" />
                                 </div>
                                 <div>
-                                    <h2 className="text-xl font-bold text-yellow-400 mb-2">{achievement.title}</h2>
-                                    <p className="text-gray-400 text-sm">{achievement.description}</p>
+                                    <h2 className="text-base md:text-xl font-bold text-yellow-400 mb-1 md:mb-2">{achievement.title}</h2>
+                                    <p className="text-gray-400 text-xs md:text-sm">{achievement.description}</p>
                                 </div>
                             </div>
                         </div>

@@ -44,19 +44,19 @@ export default function SkillsPage() {
                 </h1>
 
                 {/* Skills Grid */}
-                <div className="py-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="py-4 md:py-8 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     {categories.map((cat) => {
                         const Icon = cat.icon
                         const list = skills[cat.key]
                         if (!list) return null
                         return (
-                            <div key={cat.key} className={`border rounded-xl p-6 ${colors[cat.color]}`}>
-                                <div className="flex items-center gap-3 mb-4">
-                                    <Icon size={24} />
-                                    <h2 className="text-lg font-bold text-white">{cat.label}</h2>
+                            <div key={cat.key} className={`border rounded-xl p-4 md:p-6 ${colors[cat.color]}`}>
+                                <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
+                                    <Icon size={20} className="md:w-6 md:h-6" />
+                                    <h2 className="text-base md:text-lg font-bold text-white">{cat.label}</h2>
                                 </div>
-                                <div className="flex flex-wrap gap-2">
-                                    {list.map((s, i) => <span key={i} className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-sm text-gray-300">{s}</span>)}
+                                <div className="flex flex-wrap gap-1.5 md:gap-2">
+                                    {list.map((s, i) => <span key={i} className="px-2 md:px-3 py-1 md:py-1.5 bg-white/5 border border-white/10 rounded-lg text-xs md:text-sm text-gray-300">{s}</span>)}
                                 </div>
                             </div>
                         )

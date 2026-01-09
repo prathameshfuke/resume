@@ -24,22 +24,22 @@ export default function EducationPage() {
                 </h1>
 
                 {/* Main Degree */}
-                <div className="py-8">
-                    <div className="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8">
-                        <div className="flex items-start gap-4 mb-6">
-                            <div className="w-14 h-14 bg-blue-900/20 border border-blue-500/20 rounded-xl flex items-center justify-center shrink-0">
-                                <GraduationCap size={28} className="text-blue-400" />
+                <div className="py-4 md:py-8">
+                    <div className="bg-white/5 border border-white/10 rounded-xl p-4 md:p-8">
+                        <div className="flex items-start gap-3 md:gap-4 mb-4 md:mb-6">
+                            <div className="w-10 h-10 md:w-14 md:h-14 bg-blue-900/20 border border-blue-500/20 rounded-xl flex items-center justify-center shrink-0">
+                                <GraduationCap size={20} className="text-blue-400 md:w-7 md:h-7" />
                             </div>
                             <div>
-                                <h2 className="text-xl font-bold">{education.degree.name}</h2>
-                                <p className="text-gray-400">{education.degree.university}</p>
+                                <h2 className="text-lg md:text-xl font-bold">{education.degree.name}</h2>
+                                <p className="text-gray-400 text-sm md:text-base">{education.degree.university}</p>
                                 <p className="text-xs text-gray-500 mt-1">{education.degree.location}</p>
                             </div>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div className="bg-white/5 rounded-lg p-4 text-center">
-                                <p className="text-3xl font-bold text-green-400">{education.degree.cgpa}</p>
-                                <p className="text-xs text-gray-500 mt-1">CGPA (Top 1%)</p>
+                        <div className="grid grid-cols-3 gap-2 md:gap-4">
+                            <div className="bg-white/5 rounded-lg p-2 md:p-4 text-center">
+                                <p className="text-xl md:text-3xl font-bold text-green-400">{education.degree.cgpa}</p>
+                                <p className="text-[9px] md:text-xs text-gray-500 mt-1">CGPA</p>
                             </div>
                             <div className="bg-white/5 rounded-lg p-4 text-center">
                                 <p className="text-lg font-bold text-yellow-400">{education.degree.highlight}</p>
