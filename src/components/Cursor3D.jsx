@@ -1,16 +1,25 @@
-import { useEffect, useState, useRef, useCallback } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 export default function Cursor3D() {
     const dotRef = useRef(null)
     const ringRef = useRef(null)
     const [isHovered, setIsHovered] = useState(false)
+    const [isMobile, setIsMobile] = useState(false)
     const mousePos = useRef({ x: 0, y: 0 })
     const ringPos = useRef({ x: 0, y: 0 })
 
     useEffect(() => {
+        // Detect mobile/touch devices
+        const checkMobile = () => {
+            setIsMobile(window.matchMedia('(max-width: 768px)').matches ||
+                'ontouchstart' in window ||
+                navigator.maxTouchPoints > 0)
+        }
+        checkMobile()
+        window.addEventListener('resize', checkMobile)
+
         const handleMouseMove = (e) => {
             mousePos.current = { x: e.clientX, y: e.clientY }
-            // Update dot immediately
             if (dotRef.current) {
                 dotRef.current.style.transform = `translate(${e.clientX - 4}px, ${e.clientY - 4}px)`
             }
@@ -36,11 +45,15 @@ export default function Cursor3D() {
         animationId = requestAnimationFrame(animate)
 
         return () => {
+            window.removeEventListener('resize', checkMobile)
             window.removeEventListener('mousemove', handleMouseMove)
             window.removeEventListener('mouseover', handleMouseOver)
             cancelAnimationFrame(animationId)
         }
     }, [])
+
+    // Don't render on mobile
+    if (isMobile) return null
 
     return (
         <>
