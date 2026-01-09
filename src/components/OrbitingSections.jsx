@@ -106,18 +106,18 @@ function SectionOrb({ section, isHovered, onHover, onNavigate, gravityOffset }) 
                     style={{ cursor: 'pointer' }}
                 >
                     <div
-                        className={`p-3 rounded-full backdrop-blur-sm mb-2 transition-all duration-300 border ${isHovered
+                        className={`w-10 h-10 flex items-center justify-center rounded-full backdrop-blur-sm mb-1 transition-all duration-300 border ${isHovered
                                 ? 'bg-white/20 border-white/40'
                                 : 'bg-black/80 border-white/20'
                             }`}
+                        style={{ margin: '0 auto' }}
                     >
-                        {IconComponent && <IconComponent size={20} color="#ffffff" />}
+                        {IconComponent && <IconComponent size={18} color="#ffffff" />}
                     </div>
                     <span
-                        className="text-[11px] font-medium uppercase tracking-wider whitespace-nowrap block text-white px-2 py-1 rounded bg-black/70"
+                        className="text-[9px] font-medium uppercase tracking-wide whitespace-nowrap block text-white"
                         style={{
-                            textShadow: '0 0 10px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,1)',
-                            letterSpacing: '0.1em'
+                            textShadow: '0 0 8px rgba(0,0,0,1), 0 0 15px rgba(0,0,0,1)'
                         }}
                     >
                         {section.name}
