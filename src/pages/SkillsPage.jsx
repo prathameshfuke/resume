@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { resumeData } from '../data/resumeData'
 import { ArrowLeft, Cpu, Code, Database, Cloud, Smartphone, Server } from 'lucide-react'
+import Cursor3D from '../components/Cursor3D'
 
 export default function SkillsPage() {
     const skills = resumeData.sections.find(s => s.id === 'skills').content
@@ -26,7 +27,7 @@ export default function SkillsPage() {
     }
 
     return (
-        <div className="min-h-screen bg-black text-white p-4 md:p-8 font-sans overflow-y-auto">
+        <div className="min-h-screen bg-black text-white p-4 md:p-8 font-sans overflow-y-auto cursor-none">
             {/* Header */}
             <div className="w-full max-w-6xl mx-auto mb-8 flex items-center justify-between">
                 <Link to="/" className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-white/20 transition-all">
@@ -62,6 +63,7 @@ export default function SkillsPage() {
                     })}
                 </div>
             </div>
+            <Cursor3D />
         </div>
     )
 }
