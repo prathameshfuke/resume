@@ -7,8 +7,16 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Helvetica Bold';
+  src: url('/fonts/Helvetica-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 @theme {
   --font-display: 'TT Commons Pro', 'Inter', system-ui, sans-serif;
+  --font-helvetica: 'Helvetica Bold', 'Helvetica', 'Arial', sans-serif;
 }
 
 :root {
