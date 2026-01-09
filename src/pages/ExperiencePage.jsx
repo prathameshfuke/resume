@@ -28,20 +28,20 @@ export default function ExperiencePage() {
                 {/* Experience Cards */}
                 <div className="py-4 md:py-8 space-y-4 md:space-y-6">
                     {experience.map((exp, index) => (
-                        <div key={index} className="bg-white/5 border border-white/10 rounded-xl p-4 md:p-6 hover:border-white/20 transition-colors">
+                        <div key={index} className="bg-gradient-to-br from-purple-900/20 to-blue-900/10 border border-purple-500/20 rounded-xl p-4 md:p-6 hover:border-purple-500/40 hover:shadow-lg hover:shadow-purple-500/10 hover:scale-[1.01] transition-all duration-300 group">
                             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                                 <div>
-                                    <h2 className="text-xl font-bold">{exp.role}</h2>
+                                    <h2 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">{exp.role}</h2>
                                     <p className="text-purple-400">{exp.company}</p>
                                 </div>
-                                <div className="flex flex-col items-start md:items-end gap-1 text-xs text-gray-500">
-                                    <span className="flex items-center gap-2"><Calendar size={12} />{exp.duration}</span>
-                                    <span className="flex items-center gap-2"><MapPin size={12} />{exp.location}</span>
+                                <div className="flex flex-col items-start md:items-end gap-1 text-xs text-gray-400">
+                                    <span className="flex items-center gap-2 bg-white/5 px-2 py-1 rounded"><Calendar size={12} />{exp.duration}</span>
+                                    <span className="flex items-center gap-2 bg-white/5 px-2 py-1 rounded"><MapPin size={12} />{exp.location}</span>
                                 </div>
                             </div>
-                            <p className="text-gray-400 text-sm mb-4">{exp.description}</p>
+                            <p className="text-gray-300 text-sm mb-4">{exp.description}</p>
                             <div className="mb-4">
-                                <span className="text-[10px] text-gray-600 uppercase tracking-widest block mb-2">Achievements</span>
+                                <span className="text-[10px] text-purple-400 uppercase tracking-widest block mb-2">Key Achievements</span>
                                 <ul className="space-y-1">
                                     {exp.achievements.map((a, i) => (
                                         <li key={i} className="flex items-start gap-2 text-sm text-gray-300">
@@ -52,7 +52,7 @@ export default function ExperiencePage() {
                             </div>
                             <div className="flex flex-wrap gap-2">
                                 {exp.skills.map((skill, i) => (
-                                    <span key={i} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] text-gray-400 uppercase tracking-wider">{skill}</span>
+                                    <span key={i} className="px-3 py-1 bg-purple-500/10 border border-purple-500/20 rounded-full text-[10px] text-purple-300 uppercase tracking-wider">{skill}</span>
                                 ))}
                             </div>
                         </div>

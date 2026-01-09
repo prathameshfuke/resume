@@ -27,27 +27,27 @@ export default function ProjectsPage() {
                 {/* Projects Grid */}
                 <div className="py-4 md:py-8 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     {projects.map((project, index) => (
-                        <div key={index} className="bg-white/5 border border-white/10 rounded-xl p-4 md:p-6 hover:border-white/20 transition-all group">
+                        <div key={index} className="bg-gradient-to-br from-blue-900/20 to-cyan-900/10 border border-blue-500/20 rounded-xl p-4 md:p-6 hover:border-blue-500/40 hover:shadow-lg hover:shadow-blue-500/10 hover:scale-[1.02] transition-all duration-300 group">
                             <div className="flex items-start justify-between mb-3 md:mb-4">
-                                <h2 className="text-base md:text-lg font-bold group-hover:text-blue-400 transition-colors flex-1 pr-4">{project.title}</h2>
+                                <h2 className="text-base md:text-lg font-bold text-white group-hover:text-blue-300 transition-colors flex-1 pr-4">{project.title}</h2>
                                 <div className="flex gap-2 shrink-0">
                                     {project.demo && (
-                                        <a href={project.demo} target="_blank" rel="noreferrer" className="w-8 h-8 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors">
-                                            <ExternalLink size={14} />
+                                        <a href={project.demo} target="_blank" rel="noreferrer" className="w-8 h-8 bg-blue-500/20 border border-blue-500/30 rounded-lg flex items-center justify-center hover:bg-blue-500/30 transition-colors">
+                                            <ExternalLink size={14} className="text-blue-300" />
                                         </a>
                                     )}
                                     {project.github && (
-                                        <a href={project.github} target="_blank" rel="noreferrer" className="w-8 h-8 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors">
+                                        <a href={project.github} target="_blank" rel="noreferrer" className="w-8 h-8 bg-white/10 border border-white/20 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors">
                                             <Github size={14} />
                                         </a>
                                     )}
                                 </div>
                             </div>
-                            <p className="text-xs text-gray-500 flex items-center gap-2 mb-3"><Calendar size={12} />{project.timeline}</p>
-                            <p className="text-gray-400 text-sm mb-5">{project.description}</p>
+                            <p className="text-xs text-blue-400 flex items-center gap-2 mb-3 bg-blue-500/10 w-fit px-2 py-1 rounded"><Calendar size={12} />{project.timeline}</p>
+                            <p className="text-gray-300 text-sm mb-5">{project.description}</p>
                             <div className="flex flex-wrap gap-2">
                                 {project.tech.map((tech, i) => (
-                                    <span key={i} className="px-2 py-1 bg-blue-900/20 border border-blue-500/20 rounded text-[10px] text-blue-300 uppercase tracking-wider">{tech}</span>
+                                    <span key={i} className="px-2 py-1 bg-cyan-500/10 border border-cyan-500/20 rounded text-[10px] text-cyan-300 uppercase tracking-wider">{tech}</span>
                                 ))}
                             </div>
                         </div>

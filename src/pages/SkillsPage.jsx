@@ -17,13 +17,13 @@ export default function SkillsPage() {
     ]
 
     const colors = {
-        blue: 'border-blue-500/20 bg-blue-900/10 text-blue-400',
-        purple: 'border-purple-500/20 bg-purple-900/10 text-purple-400',
-        pink: 'border-pink-500/20 bg-pink-900/10 text-pink-400',
-        green: 'border-green-500/20 bg-green-900/10 text-green-400',
-        yellow: 'border-yellow-500/20 bg-yellow-900/10 text-yellow-400',
-        cyan: 'border-cyan-500/20 bg-cyan-900/10 text-cyan-400',
-        orange: 'border-orange-500/20 bg-orange-900/10 text-orange-400'
+        blue: 'border-blue-500/20 bg-gradient-to-br from-blue-900/30 to-indigo-900/10 text-blue-400 hover:border-blue-500/40 hover:shadow-lg hover:shadow-blue-500/10',
+        purple: 'border-purple-500/20 bg-gradient-to-br from-purple-900/30 to-pink-900/10 text-purple-400 hover:border-purple-500/40 hover:shadow-lg hover:shadow-purple-500/10',
+        pink: 'border-pink-500/20 bg-gradient-to-br from-pink-900/30 to-rose-900/10 text-pink-400 hover:border-pink-500/40 hover:shadow-lg hover:shadow-pink-500/10',
+        green: 'border-green-500/20 bg-gradient-to-br from-green-900/30 to-emerald-900/10 text-green-400 hover:border-green-500/40 hover:shadow-lg hover:shadow-green-500/10',
+        yellow: 'border-yellow-500/20 bg-gradient-to-br from-yellow-900/30 to-orange-900/10 text-yellow-400 hover:border-yellow-500/40 hover:shadow-lg hover:shadow-yellow-500/10',
+        cyan: 'border-cyan-500/20 bg-gradient-to-br from-cyan-900/30 to-teal-900/10 text-cyan-400 hover:border-cyan-500/40 hover:shadow-lg hover:shadow-cyan-500/10',
+        orange: 'border-orange-500/20 bg-gradient-to-br from-orange-900/30 to-red-900/10 text-orange-400 hover:border-orange-500/40 hover:shadow-lg hover:shadow-orange-500/10'
     }
 
     return (
@@ -50,7 +50,7 @@ export default function SkillsPage() {
                         const list = skills[cat.key]
                         if (!list) return null
                         return (
-                            <div key={cat.key} className={`border rounded-xl p-4 md:p-6 ${colors[cat.color]}`}>
+                            <div key={cat.key} className={`border rounded-xl p-4 md:p-6 hover:scale-[1.02] transition-all duration-300 ${colors[cat.color]}`}>
                                 <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
                                     <Icon size={20} className="md:w-6 md:h-6" />
                                     <h2 className="text-base md:text-lg font-bold text-white">{cat.label}</h2>

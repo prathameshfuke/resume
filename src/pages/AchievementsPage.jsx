@@ -28,7 +28,7 @@ export default function AchievementsPage() {
                     {achievements.map((achievement, index) => (
                         <div
                             key={index}
-                            className="bg-gradient-to-br from-yellow-900/20 to-orange-900/10 border border-yellow-500/20 rounded-xl p-4 md:p-6 hover:border-yellow-500/40 transition-colors"
+                            className="bg-gradient-to-br from-yellow-900/30 to-orange-900/15 border border-yellow-500/20 rounded-xl p-4 md:p-6 hover:border-yellow-500/50 hover:shadow-lg hover:shadow-yellow-500/10 hover:scale-[1.02] transition-all duration-300 group"
                         >
                             <div className="flex items-start gap-3 md:gap-4">
                                 <div className="w-10 h-10 md:w-12 md:h-12 bg-yellow-500/20 rounded-xl flex items-center justify-center shrink-0">
