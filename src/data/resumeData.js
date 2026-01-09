@@ -82,7 +82,7 @@ export const resumeData = {
                     title: 'Aadhare: Aadhaar Data Analysis',
                     description: 'Uncovering Enrollment Patterns with AI-powered anomaly detection and forecasting. 65% enrollments are children under 5, identified 71 anomalous days.',
                     tech: ['Python', 'Streamlit', 'Docker', 'Isolation Forest', 'Random Forest', 'Jupyter'],
-                    timeline: '2024',
+                    timeline: '2025',
                     github: 'https://github.com/prathameshfuke/Aadhare',
                     demo: null
                 },
@@ -90,7 +90,7 @@ export const resumeData = {
                     title: 'ScoreSight: EPL Prediction',
                     description: 'ML project for predicting English Premier League outcomes. League Winner: 97.2% accuracy (LightGBM), Top Scorer: R² = 0.977.',
                     tech: ['Python', 'LightGBM', 'XGBoost', 'Scikit-learn', 'Streamlit', 'Pandas'],
-                    timeline: '2024',
+                    timeline: '2025',
                     github: 'https://github.com/prathameshfuke/scoresight',
                     demo: 'https://scoresight.streamlit.app/'
                 },
@@ -106,7 +106,7 @@ export const resumeData = {
                     title: 'AgeWell: Elderly Care Platform',
                     description: 'Comprehensive elderly care with medication management, health monitoring, and AI assistance. Prescription OCR with automatic extraction.',
                     tech: ['Flask', 'React', 'React Native', 'TailwindCSS', 'SQLAlchemy', 'Tesseract OCR'],
-                    timeline: '2024 - Present',
+                    timeline: '2025 - Present',
                     github: 'https://github.com/prathameshfuke/agewell',
                     demo: null
                 },
@@ -122,7 +122,7 @@ export const resumeData = {
                     title: 'Eonverse AI: Meeting Intelligence',
                     description: 'AI-powered meeting dashboard extracting action items, decisions, and visual cues. Uses FLAN-T5, DistilBART, and BLIP models.',
                     tech: ['Python', 'Streamlit', 'FLAN-T5', 'DistilBART', 'BLIP', 'HuggingFace'],
-                    timeline: '2024',
+                    timeline: '2025',
                     github: 'https://github.com/prathameshfuke/Eonverse_Ai',
                     demo: 'https://intmeet.streamlit.app/'
                 }
