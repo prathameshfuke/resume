@@ -125,7 +125,7 @@ export default function LandingPage() {
             {isMobile && !menuOpen && (
                 <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30 pointer-events-none">
                     <p className="text-gray-500 text-[10px] tracking-widest uppercase text-center">
-                        Tap planets to explore • Menu ↗
+                        Press stars to explore • Menu ↗
                     </p>
                 </div>
             )}
