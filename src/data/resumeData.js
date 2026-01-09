@@ -177,6 +177,11 @@ export const resumeData = {
                 {
                     title: 'Perplexity Campus Strategist',
                     description: 'Organized workshops reaching 200+ students. Increased campus AI tool adoption by 40%.'
+                },
+                {
+                    title: 'Google Cloud Skill Boost',
+                    description: 'Completed multiple Google Cloud learning paths and skill badges.',
+                    link: 'https://www.skills.google/public_profiles/51593f1b-e3d7-4e4d-bdea-9322678914bd'
                 }
             ]
         },
