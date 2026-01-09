@@ -27,7 +27,7 @@ export default function ProjectsPage() {
                 {/* Projects Grid */}
                 <div className="py-4 md:py-8 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     {projects.map((project, index) => (
-                        <div key={index} className="bg-gradient-to-br from-blue-900/20 to-cyan-900/10 border border-blue-500/20 rounded-xl p-4 md:p-6 hover:border-blue-500/40 hover:shadow-lg hover:shadow-blue-500/10 hover:scale-[1.02] transition-all duration-300 group">
+                        <div key={index} className="bg-gradient-to-br from-blue-900/20 to-cyan-900/10 border border-blue-500/20 rounded-xl p-4 md:p-6 hover:border-blue-500/40 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group">
                             <div className="flex items-start justify-between mb-3 md:mb-4">
                                 <h2 className="text-base md:text-lg font-bold text-white group-hover:text-blue-300 transition-colors flex-1 pr-4">{project.title}</h2>
                                 <div className="flex gap-2 shrink-0">

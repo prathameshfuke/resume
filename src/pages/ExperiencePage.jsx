@@ -28,7 +28,7 @@ export default function ExperiencePage() {
                 {/* Experience Cards */}
                 <div className="py-4 md:py-8 space-y-4 md:space-y-6">
                     {experience.map((exp, index) => (
-                        <div key={index} className="bg-gradient-to-br from-purple-900/20 to-blue-900/10 border border-purple-500/20 rounded-xl p-4 md:p-6 hover:border-purple-500/40 hover:shadow-lg hover:shadow-purple-500/10 hover:scale-[1.01] transition-all duration-300 group">
+                        <div key={index} className="bg-gradient-to-br from-purple-900/20 to-blue-900/10 border border-purple-500/20 rounded-xl p-4 md:p-6 hover:border-purple-500/40 hover:shadow-lg hover:shadow-purple-500/10 transition-all duration-300 group">
                             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                                 <div>
                                     <h2 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">{exp.role}</h2>

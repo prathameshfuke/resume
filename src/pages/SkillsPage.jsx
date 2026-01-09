@@ -50,7 +50,7 @@ export default function SkillsPage() {
                         const list = skills[cat.key]
                         if (!list) return null
                         return (
-                            <div key={cat.key} className={`border rounded-xl p-4 md:p-6 hover:scale-[1.02] transition-all duration-300 ${colors[cat.color]}`}>
+                            <div key={cat.key} className={`border rounded-xl p-4 md:p-6 transition-all duration-300 ${colors[cat.color]}`}>
                                 <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
                                     <Icon size={20} className="md:w-6 md:h-6" />
                                     <h2 className="text-base md:text-lg font-bold text-white">{cat.label}</h2>
