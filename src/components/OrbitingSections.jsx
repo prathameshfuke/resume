@@ -90,18 +90,19 @@ function SectionOrb({ section, isHovered, onHover, onNavigate }) {
                     style={{ cursor: 'pointer' }}
                 >
                     <div
-                        className={`p-3 rounded-xl backdrop-blur-md mb-2 transition-all duration-300 ${isHovered
-                            ? 'bg-white/20 border-2'
-                            : 'bg-black/60 border border-white/10'
+                        className={`p-3 rounded-full backdrop-blur-sm mb-2 transition-all duration-300 border ${isHovered
+                                ? 'bg-white/20 border-white/40'
+                                : 'bg-black/80 border-white/20'
                             }`}
-                        style={{ borderColor: isHovered ? section.color : undefined }}
                     >
-                        {IconComponent && <IconComponent size={24} color={isHovered ? '#ffffff' : section.color} />}
+                        {IconComponent && <IconComponent size={20} color="#ffffff" />}
                     </div>
                     <span
-                        className={`text-[10px] font-bold uppercase tracking-widest whitespace-nowrap block transition-all ${isHovered ? 'text-white' : 'text-gray-300'
-                            }`}
-                        style={{ textShadow: '0 2px 10px rgba(0,0,0,1)' }}
+                        className="text-[11px] font-medium uppercase tracking-wider whitespace-nowrap block text-white px-2 py-1 rounded bg-black/70"
+                        style={{
+                            textShadow: '0 0 10px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,1)',
+                            letterSpacing: '0.1em'
+                        }}
                     >
                         {section.name}
                     </span>
