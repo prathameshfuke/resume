@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { resumeData } from '../data/resumeData'
 import { ArrowLeft, Star, Link as LinkIcon, MapPin, Phone, Github, Linkedin, Code2, Send, CheckCircle } from 'lucide-react'
+import Cursor3D from './Cursor3D'
 
 export default function ContactPage() {
     const contact = resumeData.sections.find(s => s.id === 'contact').content
@@ -20,7 +21,7 @@ export default function ContactPage() {
     }
 
     return (
-        <div className="min-h-screen bg-black text-white p-4 md:p-8 font-sans overflow-y-auto">
+        <div className="min-h-screen bg-black text-white p-4 md:p-8 font-sans overflow-y-auto cursor-none">
             {/* Header */}
             <div className="w-full max-w-6xl mx-auto mb-8 flex items-center justify-between">
                 <Link to="/" className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-white/20 transition-all">
@@ -167,6 +168,7 @@ export default function ContactPage() {
                     </div>
                 </div>
             </div>
+            <Cursor3D />
         </div>
     )
 }

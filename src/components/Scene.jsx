@@ -8,7 +8,7 @@ import StarField from './StarField'
 import DownloadResume from './DownloadResume'
 import * as THREE from 'three'
 
-export default function Scene({ onNavigate }) {
+export default function Scene({ onNavigate, mousePosition = { x: 0.5, y: 0.5 } }) {
     return (
         <div className="w-full h-full absolute inset-0" style={{ background: '#000000' }}>
             <DownloadResume />
@@ -39,7 +39,11 @@ export default function Scene({ onNavigate }) {
 
                     {/* Main Elements */}
                     <BlackHole position={[0, 0, 0]} />
-                    <OrbitingSections position={[0, 0, 0]} onNavigate={onNavigate} />
+                    <OrbitingSections
+                        position={[0, 0, 0]}
+                        onNavigate={onNavigate}
+                        mousePosition={mousePosition}
+                    />
 
                     {/* Camera Controls */}
                     <OrbitControls

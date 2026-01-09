@@ -36,50 +36,35 @@ export default function Cursor3D() {
 
     return (
         <>
-            {/* Main cursor dot */}
+            {/* Main cursor dot - smaller */}
             <div
                 className="fixed pointer-events-none z-[9999] mix-blend-difference"
                 style={{
                     left: position.x,
                     top: position.y,
-                    transform: `translate(-50%, -50%) scale(${isClicking ? 0.8 : isHovered ? 1.5 : 1})`,
-                    transition: 'transform 0.15s ease-out'
+                    transform: `translate(-50%, -50%) scale(${isClicking ? 0.7 : isHovered ? 1.3 : 1})`,
+                    transition: 'transform 0.1s ease-out'
                 }}
             >
                 <div
-                    className={`rounded-full bg-white transition-all duration-150 ${isHovered ? 'w-5 h-5' : 'w-3 h-3'
+                    className={`rounded-full bg-white transition-all duration-100 ${isHovered ? 'w-3 h-3' : 'w-2 h-2'
                         }`}
                     style={{
-                        boxShadow: '0 0 10px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.3)'
+                        boxShadow: '0 0 6px rgba(255,255,255,0.5)'
                     }}
                 />
             </div>
 
-            {/* Trailing ring */}
+            {/* Trailing ring - smaller */}
             <div
-                className="fixed pointer-events-none z-[9998] rounded-full border border-white/30"
+                className="fixed pointer-events-none z-[9998] rounded-full border border-white/20"
                 style={{
                     left: position.x,
                     top: position.y,
-                    width: isHovered ? 50 : 40,
-                    height: isHovered ? 50 : 40,
+                    width: isHovered ? 28 : 20,
+                    height: isHovered ? 28 : 20,
                     transform: 'translate(-50%, -50%)',
-                    transition: 'left 0.1s ease-out, top 0.1s ease-out, width 0.2s, height 0.2s',
-                    boxShadow: '0 0 15px rgba(255,255,255,0.1)'
-                }}
-            />
-
-            {/* Depth shadow */}
-            <div
-                className="fixed pointer-events-none z-[9997] rounded-full bg-white/5"
-                style={{
-                    left: position.x + 3,
-                    top: position.y + 3,
-                    width: 30,
-                    height: 30,
-                    transform: 'translate(-50%, -50%)',
-                    transition: 'left 0.15s ease-out, top 0.15s ease-out',
-                    filter: 'blur(8px)'
+                    transition: 'left 0.08s ease-out, top 0.08s ease-out, width 0.15s, height 0.15s'
                 }}
             />
         </>

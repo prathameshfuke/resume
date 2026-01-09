@@ -1,20 +1,34 @@
+import { useState, useEffect } from 'react'
 import Scene from './Scene'
 import { Link, useNavigate } from 'react-router-dom'
 import { resumeData } from '../data/resumeData'
 import { Briefcase, Rocket, Mail } from 'lucide-react'
+import Cursor3D from './Cursor3D'
 
 export default function LandingPage() {
     const navigate = useNavigate()
+    const [mousePosition, setMousePosition] = useState({ x: 0.5, y: 0.5 })
+
+    useEffect(() => {
+        const handleMouseMove = (e) => {
+            setMousePosition({
+                x: e.clientX / window.innerWidth,
+                y: e.clientY / window.innerHeight
+            })
+        }
+        window.addEventListener('mousemove', handleMouseMove)
+        return () => window.removeEventListener('mousemove', handleMouseMove)
+    }, [])
 
     const handleNavigate = (route) => {
         navigate(route)
     }
 
     return (
-        <div className="w-full h-screen relative overflow-hidden" style={{ background: '#000000' }}>
-            <Scene onNavigate={handleNavigate} />
+        <div className="w-full h-screen relative overflow-hidden cursor-none" style={{ background: '#000000' }}>
+            <Scene onNavigate={handleNavigate} mousePosition={mousePosition} />
 
-            {/* Navigation Links - Matching Style */}
+            {/* Navigation Links */}
             <div className="absolute top-8 right-8 z-50 flex gap-3">
                 <Link
                     to="/experience"
@@ -52,9 +66,11 @@ export default function LandingPage() {
             {/* Instruction */}
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-40 pointer-events-none">
                 <p className="text-gray-600 text-[10px] tracking-widest uppercase">
-                    Click on orbiting sections to explore • Drag to rotate
+                    Move cursor to influence planets • Click to explore
                 </p>
             </div>
+
+            <Cursor3D />
         </div>
     )
 }
