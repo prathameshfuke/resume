@@ -79,41 +79,52 @@ export const resumeData = {
             lon: 180,
             content: [
                 {
-                    title: 'HealthSentinel: ML-Based Outbreak Prediction',
-                    description: '94% prediction accuracy using ensemble methods. Real-time dashboarding for health workers with integrated IoT sensors.',
-                    tech: ['TensorFlow', 'BERT', 'CNN', 'Attention', 'NLP', 'React Native', 'Firebase'],
+                    title: 'Aadhare: Aadhaar Data Analysis',
+                    description: 'Uncovering Enrollment Patterns with AI-powered anomaly detection and forecasting. 65% enrollments are children under 5, identified 71 anomalous days.',
+                    tech: ['Python', 'Streamlit', 'Docker', 'Isolation Forest', 'Random Forest', 'Jupyter'],
+                    timeline: '2024',
+                    github: 'https://github.com/prathameshfuke/Aadhare',
+                    demo: null
+                },
+                {
+                    title: 'ScoreSight: EPL Prediction',
+                    description: 'ML project for predicting English Premier League outcomes. League Winner: 97.2% accuracy (LightGBM), Top Scorer: R² = 0.977.',
+                    tech: ['Python', 'LightGBM', 'XGBoost', 'Scikit-learn', 'Streamlit', 'Pandas'],
+                    timeline: '2024',
+                    github: 'https://github.com/prathameshfuke/scoresight',
+                    demo: 'https://scoresight.streamlit.app/'
+                },
+                {
+                    title: 'HealthSentinel: Community Health Monitoring',
+                    description: 'Smart system for detecting water-borne disease outbreaks in rural Northeast India. Multi-model ML analysis with 94% prediction accuracy.',
+                    tech: ['React', 'TypeScript', 'FastAPI', 'XGBoost', 'Firebase', 'React Native'],
                     timeline: 'Jan 2025 - Present',
-                    demo: 'https://healthsentinel.demo'
+                    github: 'https://github.com/prathameshfuke/healthsentinel',
+                    demo: null
                 },
                 {
-                    title: 'AgeWell: OCR-Powered Healthcare System',
-                    description: '95%+ precision for medication dispensing. 97% medication adherence rates with multi-sensor health monitoring.',
-                    tech: ['ESP32', 'Python', 'Firebase', 'OpenCV OCR', 'Flutter', 'IoT Sensors'],
-                    timeline: 'Jan 2025 - Present'
+                    title: 'AgeWell: Elderly Care Platform',
+                    description: 'Comprehensive elderly care with medication management, health monitoring, and AI assistance. Prescription OCR with automatic extraction.',
+                    tech: ['Flask', 'React', 'React Native', 'TailwindCSS', 'SQLAlchemy', 'Tesseract OCR'],
+                    timeline: '2024 - Present',
+                    github: 'https://github.com/prathameshfuke/agewell',
+                    demo: null
                 },
                 {
-                    title: 'TCOS: Computer Vision Traffic System',
-                    description: '30 FPS video processing with 92% detection accuracy. 35% reduction in emergency response time.',
-                    tech: ['Python', 'YOLOv5', 'OpenCV', 'CNN', 'ResNet', 'TensorFlow'],
-                    timeline: 'Aug 2024 - Dec 2024'
+                    title: 'PrimeTrade: Crypto Behavioral Finance',
+                    description: 'Analyzes relationship between cryptocurrency trader performance and Bitcoin Fear/Greed Index. 8 comprehensive visualizations.',
+                    tech: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Jupyter'],
+                    timeline: 'Oct 2024 - Dec 2024',
+                    github: 'https://github.com/prathameshfuke/primetrade',
+                    demo: null
                 },
                 {
-                    title: 'EcoIrrigate: ML Agriculture System',
-                    description: '87% accuracy for crop yield prediction. 45% reduction in water consumption with real-time monitoring.',
-                    tech: ['XGBoost', 'LSTM', 'Bayesian Optimization', 'Raspberry Pi', 'Arduino', 'MQTT'],
-                    timeline: 'Jun 2024 - Aug 2024'
-                },
-                {
-                    title: 'PrimeTrade: Crypto Behavioral Finance Platform',
-                    description: 'Correlation analysis between cryptocurrency trader performance and Bitcoin Fear/Greed sentiment index.',
-                    tech: ['Python', 'Pandas', 'Matplotlib', 'Statistical Analysis', 'API Integration'],
-                    timeline: 'Oct 2024 - Dec 2024'
-                },
-                {
-                    title: 'Local AI Chatbot',
-                    description: '87% accuracy in intent classification using transformer models.',
-                    tech: ['Python', 'HuggingFace Transformers', 'NLP', 'PyTorch'],
-                    timeline: 'April 2024'
+                    title: 'Eonverse AI: Meeting Intelligence',
+                    description: 'AI-powered meeting dashboard extracting action items, decisions, and visual cues. Uses FLAN-T5, DistilBART, and BLIP models.',
+                    tech: ['Python', 'Streamlit', 'FLAN-T5', 'DistilBART', 'BLIP', 'HuggingFace'],
+                    timeline: '2024',
+                    github: 'https://github.com/prathameshfuke/Eonverse_Ai',
+                    demo: 'https://intmeet.streamlit.app/'
                 }
             ]
         },
