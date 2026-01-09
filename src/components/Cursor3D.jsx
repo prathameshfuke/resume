@@ -1,12 +1,13 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef, useCallback } from 'react'
 
 export default function Cursor3D() {
     const dotRef = useRef(null)
     const ringRef = useRef(null)
     const [isHovered, setIsHovered] = useState(false)
     const [isMobile, setIsMobile] = useState(false)
-    const mousePos = useRef({ x: 0, y: 0 })
-    const ringPos = useRef({ x: 0, y: 0 })
+    const mousePos = useRef({ x: -100, y: -100 })
+    const ringPos = useRef({ x: -100, y: -100 })
+    const isRunning = useRef(true)
 
     useEffect(() => {
         // Detect mobile/touch devices
@@ -18,37 +19,45 @@ export default function Cursor3D() {
         checkMobile()
         window.addEventListener('resize', checkMobile)
 
+        // Use passive event listener for better performance
         const handleMouseMove = (e) => {
             mousePos.current = { x: e.clientX, y: e.clientY }
-            if (dotRef.current) {
-                dotRef.current.style.transform = `translate(${e.clientX - 4}px, ${e.clientY - 4}px)`
-            }
         }
 
         const handleMouseOver = (e) => {
             setIsHovered(!!e.target.closest('a, button, [role="button"]'))
         }
 
-        window.addEventListener('mousemove', handleMouseMove)
-        window.addEventListener('mouseover', handleMouseOver)
+        window.addEventListener('mousemove', handleMouseMove, { passive: true })
+        window.addEventListener('mouseover', handleMouseOver, { passive: true })
 
-        // Animate ring with RAF
-        let animationId
+        // Smooth animation loop with RAF
         const animate = () => {
-            ringPos.current.x += (mousePos.current.x - ringPos.current.x) * 0.2
-            ringPos.current.y += (mousePos.current.y - ringPos.current.y) * 0.2
-            if (ringRef.current) {
-                ringRef.current.style.transform = `translate(${ringPos.current.x - 10}px, ${ringPos.current.y - 10}px)`
+            if (!isRunning.current) return
+
+            // Update dot position directly (instant follow)
+            if (dotRef.current) {
+                dotRef.current.style.transform = `translate3d(${mousePos.current.x - 4}px, ${mousePos.current.y - 4}px, 0)`
             }
-            animationId = requestAnimationFrame(animate)
+
+            // Smooth lerp for ring
+            ringPos.current.x += (mousePos.current.x - ringPos.current.x) * 0.15
+            ringPos.current.y += (mousePos.current.y - ringPos.current.y) * 0.15
+
+            if (ringRef.current) {
+                ringRef.current.style.transform = `translate3d(${ringPos.current.x - 10}px, ${ringPos.current.y - 10}px, 0)`
+            }
+
+            requestAnimationFrame(animate)
         }
-        animationId = requestAnimationFrame(animate)
+
+        requestAnimationFrame(animate)
 
         return () => {
+            isRunning.current = false
             window.removeEventListener('resize', checkMobile)
             window.removeEventListener('mousemove', handleMouseMove)
             window.removeEventListener('mouseover', handleMouseOver)
-            cancelAnimationFrame(animationId)
         }
     }, [])
 
@@ -61,7 +70,10 @@ export default function Cursor3D() {
             <div
                 ref={dotRef}
                 className="fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-difference"
-                style={{ willChange: 'transform' }}
+                style={{
+                    willChange: 'transform',
+                    backfaceVisibility: 'hidden'
+                }}
             >
                 <div
                     className="rounded-full bg-white"
@@ -69,7 +81,7 @@ export default function Cursor3D() {
                         width: isHovered ? 12 : 8,
                         height: isHovered ? 12 : 8,
                         boxShadow: '0 0 6px rgba(255,255,255,0.5)',
-                        transition: 'width 0.1s, height 0.1s'
+                        transition: 'width 0.15s ease-out, height 0.15s ease-out'
                     }}
                 />
             </div>
@@ -79,9 +91,11 @@ export default function Cursor3D() {
                 ref={ringRef}
                 className="fixed top-0 left-0 pointer-events-none z-[9998] rounded-full border border-white/30"
                 style={{
-                    width: 20,
-                    height: 20,
-                    willChange: 'transform'
+                    width: isHovered ? 24 : 20,
+                    height: isHovered ? 24 : 20,
+                    willChange: 'transform',
+                    backfaceVisibility: 'hidden',
+                    transition: 'width 0.15s ease-out, height 0.15s ease-out'
                 }}
             />
         </>
