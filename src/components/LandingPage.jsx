@@ -36,7 +36,10 @@ export default function LandingPage() {
 
     return (
         <div className={`w-full h-screen relative overflow-hidden ${!isMobile ? 'cursor-none' : ''}`} style={{ background: '#000000' }}>
-            <Scene onNavigate={handleNavigate} mousePosition={mousePosition} />
+            {/* Hide 3D scene when mobile menu is open */}
+            {!(isMobile && menuOpen) && (
+                <Scene onNavigate={handleNavigate} mousePosition={mousePosition} />
+            )}
 
             {/* Mobile Menu Button */}
             {isMobile && (
