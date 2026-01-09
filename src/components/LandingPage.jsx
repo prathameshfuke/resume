@@ -42,7 +42,7 @@ export default function LandingPage() {
             {isMobile && (
                 <button
                     onClick={() => setMenuOpen(!menuOpen)}
-                    className="absolute top-4 right-4 z-50 p-3 bg-black/70 backdrop-blur-md border border-white/20 rounded-full text-white"
+                    className="fixed top-4 right-4 z-[101] p-3 bg-black/70 backdrop-blur-md border border-white/20 rounded-full text-white"
                 >
                     {menuOpen ? <X size={20} /> : <Menu size={20} />}
                 </button>
@@ -77,7 +77,7 @@ export default function LandingPage() {
 
             {/* Mobile Menu */}
             {isMobile && menuOpen && (
-                <div className="absolute inset-0 z-40 bg-black/90 backdrop-blur-lg flex flex-col items-center justify-center gap-6">
+                <div className="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center gap-8">
                     <Link to="/experience" onClick={() => setMenuOpen(false)} className="text-xl text-white uppercase tracking-widest flex items-center gap-3">
                         <Briefcase size={20} /> Experience
                     </Link>
