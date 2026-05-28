@@ -151,15 +151,6 @@ export const resumeData = {
                     demo: 'https://agewell-pi.vercel.app'
                 },
                 {
-                    title: 'AgentBoard',
-                    tags: ['AI/ML'],
-                    description: 'Four-agent enterprise advisory system built at Multiverz for a publicly listed company in Sri Lanka. Agents cover Growth and Market Entry, Strategy and Operations, ESG and Compliance, and Competitive Intelligence and M&A. Orchestrated using LangGraph and CrewAI with hybrid RAG combining vector DB and knowledge graph. Delivers board-ready strategic insights in under 30 minutes.',
-                    tech: ['LangGraph', 'CrewAI', 'Vector DB', 'Knowledge Graph', 'Python'],
-                    timeline: 'Nov 2025',
-                    github: null,
-                    demo: null
-                },
-                {
                     title: 'ScoreSight',
                     tags: ['AI/ML', 'Web Dev', 'Research'],
                     description: 'End-to-end ML system predicting EPL match outcomes and season results. Uses 54 leakage-safe features with careful temporal splits, LightGBM and XGBoost ensemble. Achieves 97.2% classification accuracy and R² of 0.977 for score regression. Deployed as an interactive Streamlit app with clean visual dashboards.',

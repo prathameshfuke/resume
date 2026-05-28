@@ -12,6 +12,7 @@ export function FlippingCard({
   'aria-label': ariaLabel,
 }) {
   const [forcedFlip, setForcedFlip] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
 
   const handleClick = () => {
     // Toggle for touch/mobile devices that don't support hover
@@ -19,6 +20,8 @@ export function FlippingCard({
       setForcedFlip((prev) => !prev)
     }
   }
+
+  const isFlipped = forcedFlip || isHovered
 
   return (
     <div
@@ -33,19 +36,20 @@ export function FlippingCard({
         className={cn(
           'relative w-full h-full rounded-2xl transform-preserve-3d',
           'transition-all duration-700',
-          forcedFlip ? '[transform:rotateY(180deg)]' : '',
           className
         )}
-        style={{ transformStyle: 'preserve-3d' }}
-        /* CSS hover flip — applied via group in parent hover chain */
-        onMouseEnter={(e) => {
+        style={{ 
+          transformStyle: 'preserve-3d',
+          transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)'
+        }}
+        onMouseEnter={() => {
           if (!window.matchMedia('(hover: none)').matches) {
-            e.currentTarget.style.transform = 'rotateY(180deg)'
+            setIsHovered(true)
           }
         }}
-        onMouseLeave={(e) => {
-          if (!window.matchMedia('(hover: none)').matches && !forcedFlip) {
-            e.currentTarget.style.transform = 'rotateY(0deg)'
+        onMouseLeave={() => {
+          if (!window.matchMedia('(hover: none)').matches) {
+            setIsHovered(false)
           }
         }}
       >
@@ -53,6 +57,7 @@ export function FlippingCard({
         <div
           className={cn(
             'absolute inset-0 w-full h-full rounded-[inherit] backface-hidden',
+            isFlipped ? 'pointer-events-none' : 'pointer-events-auto',
             frontClassName
           )}
           style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
@@ -66,6 +71,7 @@ export function FlippingCard({
         <div
           className={cn(
             'absolute inset-0 w-full h-full rounded-[inherit] backface-hidden',
+            isFlipped ? 'pointer-events-auto' : 'pointer-events-none',
             backClassName
           )}
           style={{
