@@ -163,6 +163,8 @@ export default function OrbitingSections({ position = [0, 0, 0], onNavigate, mou
     const groupRef = useRef()
     const [hoveredSection, setHoveredSection] = useState(null)
     const elapsedTimeRef = useRef(0)
+    const frozenTimeRef = useRef(0) // Tracks orbital time, paused on hover
+    const hoveredRef = useRef(false) // Ref mirror of hoveredSection for use in useFrame
 
     // Setup base section data with orbital info
     const sectionData = useMemo(() => {
@@ -220,11 +222,19 @@ export default function OrbitingSections({ position = [0, 0, 0], onNavigate, mou
 
     const [dynamicData, setDynamicData] = useState(() => getDynamicPositions(0, false))
 
-    // Update positions on each frame based on elapsed time (continue even during hover for smoothness)
-    useFrame((state) => {
+    // Keep hoveredRef in sync so useFrame can read it without stale closure issues
+    useEffect(() => {
+        hoveredRef.current = !!hoveredSection
+    }, [hoveredSection])
+
+    // Update positions; freeze orbital time while any planet is hovered
+    useFrame((state, delta) => {
         elapsedTimeRef.current = state.clock.elapsedTime
-        // Always update positions to keep planets moving smoothly, even during hover
-        setDynamicData(getDynamicPositions(state.clock.elapsedTime, !!hoveredSection))
+        // Only advance frozenTime when nothing is hovered
+        if (!hoveredRef.current) {
+            frozenTimeRef.current += delta
+        }
+        setDynamicData(getDynamicPositions(frozenTimeRef.current, hoveredRef.current))
     })
 
     return (
