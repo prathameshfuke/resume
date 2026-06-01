@@ -163,8 +163,9 @@ export default function OrbitingSections({ position = [0, 0, 0], onNavigate, mou
     const groupRef = useRef()
     const [hoveredSection, setHoveredSection] = useState(null)
     const elapsedTimeRef = useRef(0)
-    const frozenTimeRef = useRef(0) // Tracks orbital time, paused on hover
-    const hoveredRef = useRef(false) // Ref mirror of hoveredSection for use in useFrame
+    const frozenTimeRef = useRef(0)   // Tracks orbital time, paused/slowed on hover
+    const hoveredRef = useRef(false)  // Ref mirror of hoveredSection for useFrame
+    const mousePositionRef = useRef(mousePosition) // Ref mirror of mousePosition for useFrame
 
     // Setup base section data with orbital info
     const sectionData = useMemo(() => {
@@ -222,18 +223,33 @@ export default function OrbitingSections({ position = [0, 0, 0], onNavigate, mou
 
     const [dynamicData, setDynamicData] = useState(() => getDynamicPositions(0, false))
 
-    // Keep hoveredRef in sync so useFrame can read it without stale closure issues
-    useEffect(() => {
-        hoveredRef.current = !!hoveredSection
-    }, [hoveredSection])
+    // Keep refs in sync with latest props/state so useFrame never reads stale values
+    useEffect(() => { hoveredRef.current = !!hoveredSection }, [hoveredSection])
+    useEffect(() => { mousePositionRef.current = mousePosition }, [mousePosition])
 
-    // Update positions; freeze orbital time while any planet is hovered
+    // Update positions with two-stage speed control:
+    //   - Full speed   : mouse is away from all orbital rings
+    //   - Slow (15%)   : mouse is within ~2.5 units of any orbital ring
+    //   - Stopped (0%) : mouse is directly over a planet
     useFrame((state, delta) => {
         elapsedTimeRef.current = state.clock.elapsedTime
-        // Only advance frozenTime when nothing is hovered
+
         if (!hoveredRef.current) {
-            frozenTimeRef.current += delta
+            // Project mouse to world-space XZ plane (same mapping used for gravity)
+            const mp = mousePositionRef.current
+            const mouseX = (mp.x - 0.5) * 40
+            const mouseZ = (mp.y - 0.5) * 40
+            const mouseDistFromCenter = Math.sqrt(mouseX * mouseX + mouseZ * mouseZ)
+
+            // Check if cursor is close to any orbital ring
+            const nearOrbit = orbitalRadii.some(
+                (radius) => Math.abs(mouseDistFromCenter - radius) < 2.5
+            )
+
+            // Slow to 15% speed near orbits, full speed otherwise
+            frozenTimeRef.current += delta * (nearOrbit ? 0.15 : 1)
         }
+
         setDynamicData(getDynamicPositions(frozenTimeRef.current, hoveredRef.current))
     })
 
